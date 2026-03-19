@@ -1,0 +1,12 @@
+[submodule "modules/caribouLocPrep"]
+	path = modules/caribouLocPrep
+	url = https://github.com/gc-rmcinnes/caribouLocPrep
+[submodule "modules/prepTracks"]
+	path = modules/prepTracks
+	url = https://github.com/gc-rmcinnes/prepTracks
+[submodule "modules/prepLandscape"]
+	path = modules/prepLandscape
+	url = https://github.com/JWTurn/prepLandscape
+[submodule "modules/extractLand"]
+	path = modules/extractLand
+	url = https://github.com/gc-rmcinnes/extractLand
