@@ -37,7 +37,8 @@ out <- SpaDES.project::setupProject(
       MoveBankUser = 'jwturner',
       MoveBankPass = keyring::key_get("movebank", "jwturner"),
       .useCache = c(".inputObjects"),
-      histLandYears = 2017:2022
+      histLandYears = 2017:2022,
+      modelScale = 'juris'
     )
 
 
