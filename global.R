@@ -26,7 +26,7 @@ out <- SpaDES.project::setupProject(
               'gc-rmcinnes/prepTracks@main',
               'JWTurn/prepLandscape@main',
               'gc-rmcinnes/extractLand@main'
-              ,'gc-rmcinnes/caribouiSSA@main'
+              #,'gc-rmcinnes/caribouiSSA@main'
 
   ),
   params = list(
