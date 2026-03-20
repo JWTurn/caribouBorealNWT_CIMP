@@ -10,3 +10,6 @@
 [submodule "modules/extractLand"]
 	path = modules/extractLand
 	url = https://github.com/gc-rmcinnes/extractLand
+[submodule "modules/caribouiSSA"]
+	path = modules/caribouiSSA
+	url = https://github.com/gc-rmcinnes/caribouiSSA
