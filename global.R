@@ -25,33 +25,35 @@ out <- SpaDES.project::setupProject(
   modules = c('gc-rmcinnes/caribouLocPrep@main',
               'gc-rmcinnes/prepTracks@main',
               'JWTurn/prepLandscape@main',
-              'gc-rmcinnes/extractLand@main',
-              'gc_rmcinnes/caribouiSSA@main'
-              
+              'gc-rmcinnes/extractLand@main'
+              ,'gc-rmcinnes/caribouiSSA@main'
+
   ),
   params = list(
     .globals = list(
       .plots = c("png"),
       .studyAreaName=  "NT",
       jurisdiction = c("NT"),
+      MoveBankUser = 'jwturner',
+      MoveBankPass = keyring::key_get("movebank", "jwturner"),
       .useCache = c(".inputObjects"),
       histLandYears = 2017:2022
     )
-    
-    
+
+
   ),
-  
+
   packages = c('RCurl', 'XML', 'snow', 'googledrive', 'httr2', "terra", "gert", "remotes",
                "PredictiveEcology/reproducible@development", "PredictiveEcology/LandR@development",
                "PredictiveEcology/SpaDES.core@development", "distanceto")
-  
+
   # OUTPUTS TO SAVE -----------------------
   # outputs = {
   #   # save to disk 2 objects, every year
   #   #will add once works, ha
   #
   # }
-  
+
 )
 
 
