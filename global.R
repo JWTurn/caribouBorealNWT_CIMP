@@ -106,3 +106,7 @@ out <- SpaDES.project::setupProject(
 
 results <- SpaDES.core::simInitAndSpades2(out)
 results <- SpaDES.core::restartSpades()
+
+writeRaster(results$rasterToMatch_extendedLandscape, file.path('outputs', 'rtm_extendedLandscape.tif'))
+
+
