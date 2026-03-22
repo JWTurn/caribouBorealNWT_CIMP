@@ -14,3 +14,13 @@ outputs
 .quarto
 
 _targets/
+modules/scfmDataPrep
+modules/scfmIgnition
+modules/scfmEscape
+modules/scfmSpread
+modules/scfmDiagnostics
+modules/scfmDataPrep
+modules/scfmIgnition
+modules/scfmEscape
+modules/scfmSpread
+modules/scfmDiagnostics
