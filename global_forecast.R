@@ -64,7 +64,7 @@ out <- SpaDES.project::setupProject(
   studyArea = reproducible::prepInputs(url = 'https://drive.google.com/file/d/1YOsRhBImlNuoAU4Jkdkz9tMeTfPaF_jq/view?usp=share_link',
                                        fun = 'terra::vect',
                                        destinationPath = 'inputs'),
-  times = list(start = 2020, end = 2050),
+  times = list(start = 2020, end = 2075),
 
   studyAreaLarge = {
     terra::buffer(studyArea, 2000)
@@ -103,7 +103,7 @@ out <- SpaDES.project::setupProject(
     sppEquiv
   },
 
-  iSSAmodels = list(reproducible::prepInputs(url = 'https://drive.google.com/file/d/13ag0CfPH6vRp8vboMTaFrDZK9JU7GhAp/view?usp=share_link',
+  iSSAmodels = list(ntMod = reproducible::prepInputs(url = 'https://drive.google.com/file/d/13ag0CfPH6vRp8vboMTaFrDZK9JU7GhAp/view?usp=share_link',
                                              fun = 'load',
                                              destinationPath = 'outputs')) |>
       Cache(),
@@ -116,7 +116,7 @@ out <- SpaDES.project::setupProject(
   studyAreaCaribou = studyArea
     ,
 
-  studyArea_juris = rasterToMatch,
+  studyArea_juris = list(ntMod = studyArea),
     # reproducible::prepInputs(url = 'https://drive.google.com/file/d/1KcJ9oPTEsWYZAX4rHi2p84y0LjLhjtvJ/view?usp=share_link',
     #                                          fun = 'readRDS',
     #                                          destinationPath = 'outputs')
@@ -129,38 +129,42 @@ outputs = {
     data.frame(
       objectName = rep('pde', 1),
       saveTime = c(2020),
-      fun = rep("writeRaster", 1),
-      file = paste0(rep('pde', 1), rep(".tif", 1)),
-      package = rep("terra", 1)
+      fun = rep("saveRDS", 1),
+      file = paste0(rep('pde', 1), rep(".RDS", 1))
+      ,
+      package = rep("base", 1)
     ),
     data.frame(
       objectName = rep('pdeMap', 1),
       saveTime = c(2020),
-      fun = rep("writeRaster", 1),
-      file = paste0(rep('pdeMap', 1), rep(".tif", 1)),
-      package = rep("terra", 1)
+      fun = rep("saveRDS", 1),
+      file = paste0(rep('pdeMap', 1), rep(".RDS", 1))
+      ,
+      package = rep("base", 1)
     ),
     data.frame(
-      objectName = rep('simPde', 6),
-      saveTime = seq(from = 2025, to = 2050, by = 5),
-      fun = rep("writeRaster", 6),
-      file = paste0(rep('pde', 6), rep(".tif", 6)),
-      package = rep("terra", 6)
+      objectName = rep('simPde', 11),
+      saveTime = seq(from = 2025, to = 2075, by = 5),
+      fun = rep("saveRDS", 11),
+      file = paste0(rep('pde', 11), rep(".RDS", 11))
+      ,
+      package = rep("base", 11)
     ),
     data.frame(
-      objectName = rep('simPdeMap', 6),
-      saveTime = seq(from = 2025, to = 2050, by = 5),
-      fun = rep("writeRaster", 6),
-      file = paste0(rep('pdeMap', 6), rep(".tif", 6)),
-      package = rep("terra", 6)
+      objectName = rep('simPdeMap', 11),
+      saveTime = seq(from = 2025, to = 2075, by = 5),
+      fun = rep("saveRDS", 11),
+      file = paste0(rep('pdeMap', 11), rep(".RDS", 11))
+      ,
+      package = rep("base", 11)
     ),
 
     data.frame(
-      objectName = rep('timeSinceFire', 6),
-      saveTime = seq(from = 2025, to = 2050, by = 5),
-      fun = rep("writeRaster", 6),
-      file = paste0(rep('timeSinceFire', 6), rep(".tif", 6)),
-      package = rep("terra", 6)
+      objectName = rep('timeSinceFire', 11),
+      saveTime = seq(from = 2025, to = 2075, by = 5),
+      fun = rep("writeRaster", 11),
+      file = paste0(rep('timeSinceFire', 11), rep(".tif", 11)),
+      package = rep("terra", 11)
     )
   )
 }
