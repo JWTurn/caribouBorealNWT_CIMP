@@ -103,10 +103,13 @@ out <- SpaDES.project::setupProject(
     sppEquiv
   },
 
-  iSSAmodels = list(ntMod = reproducible::prepInputs(url = 'https://drive.google.com/file/d/13ag0CfPH6vRp8vboMTaFrDZK9JU7GhAp/view?usp=share_link',
+  iSSAmodels = {
+    mod <- reproducible::prepInputs(url = 'https://drive.google.com/file/d/13ag0CfPH6vRp8vboMTaFrDZK9JU7GhAp/view?usp=share_link',
                                              fun = 'load',
-                                             destinationPath = 'outputs')) |>
-      Cache(),
+                                             destinationPath = 'outputs') |>
+      Cache()
+    mod$iSSAmodels
+    },
 
   modelLand = reproducible::prepInputs(url = 'https://drive.google.com/file/d/1RRZLvriQTtIEYl-ISiDqJaVA_LO7n95v/view?usp=share_link',
                                        fun = 'terra::rast',
@@ -116,7 +119,7 @@ out <- SpaDES.project::setupProject(
   studyAreaCaribou = studyArea
     ,
 
-  studyArea_juris = list(ntMod = studyArea),
+  studyArea_juris = list(NT = studyArea),
     # reproducible::prepInputs(url = 'https://drive.google.com/file/d/1KcJ9oPTEsWYZAX4rHi2p84y0LjLhjtvJ/view?usp=share_link',
     #                                          fun = 'readRDS',
     #                                          destinationPath = 'outputs')
