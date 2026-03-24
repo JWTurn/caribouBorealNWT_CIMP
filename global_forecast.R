@@ -78,6 +78,8 @@ out <- SpaDES.project::setupProject(
     terra::mask(rtml, studyAreaLarge)
   },
 
+  rasterToMatch_SSUD = rasterToMatchLarge,
+
   rasterToMatch = {
     reproducible::postProcess(rasterToMatchLarge, cropTo = studyArea, maskTo = studyArea)
   },
@@ -108,7 +110,8 @@ out <- SpaDES.project::setupProject(
 
   modelLand = reproducible::prepInputs(url = 'https://drive.google.com/file/d/1RRZLvriQTtIEYl-ISiDqJaVA_LO7n95v/view?usp=share_link',
                                        fun = 'terra::rast',
-                                       destinationPath = 'outputs'),
+                                       destinationPath = 'outputs') |>
+    Cache(),
 
   studyAreaCaribou = studyArea
     ,
