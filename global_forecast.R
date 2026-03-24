@@ -116,17 +116,54 @@ out <- SpaDES.project::setupProject(
   studyAreaCaribou = studyArea
     ,
 
-  studyArea_juris = rasterToMatch
+  studyArea_juris = rasterToMatch,
     # reproducible::prepInputs(url = 'https://drive.google.com/file/d/1KcJ9oPTEsWYZAX4rHi2p84y0LjLhjtvJ/view?usp=share_link',
     #                                          fun = 'readRDS',
     #                                          destinationPath = 'outputs')
 
   # OUTPUTS TO SAVE -----------------------
-  # outputs = {
-  #   # save to disk 2 objects, every year
-  #   #will add once works, ha
-  #
-  # }
+outputs = {
+  # save to disk objects, specified years
+
+  rbind(
+    data.frame(
+      objectName = rep('pde', 1),
+      saveTime = c(2020),
+      fun = rep("writeRaster", 1),
+      file = paste0(rep('pde', 1), rep(".tif", 1)),
+      package = rep("terra", 1)
+    ),
+    data.frame(
+      objectName = rep('pdeMap', 1),
+      saveTime = c(2020),
+      fun = rep("writeRaster", 1),
+      file = paste0(rep('pdeMap', 1), rep(".tif", 1)),
+      package = rep("terra", 1)
+    ),
+    data.frame(
+      objectName = rep('simPde', 6),
+      saveTime = seq(from = 2025, to = 2050, by = 5),
+      fun = rep("writeRaster", 6),
+      file = paste0(rep('pde', 6), rep(".tif", 6)),
+      package = rep("terra", 6)
+    ),
+    data.frame(
+      objectName = rep('simPdeMap', 6),
+      saveTime = seq(from = 2025, to = 2050, by = 5),
+      fun = rep("writeRaster", 6),
+      file = paste0(rep('pdeMap', 6), rep(".tif", 6)),
+      package = rep("terra", 6)
+    ),
+
+    data.frame(
+      objectName = rep('timeSinceFire', 6),
+      saveTime = seq(from = 2025, to = 2050, by = 5),
+      fun = rep("writeRaster", 6),
+      file = paste0(rep('timeSinceFire', 6), rep(".tif", 6)),
+      package = rep("terra", 6)
+    )
+  )
+}
 
 )
 
