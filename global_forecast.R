@@ -160,15 +160,16 @@ outputs = {
       file = paste0(rep('pdeMap', 11), rep(".RDS", 11))
       ,
       package = rep("base", 11)
-    ),
-
-    data.frame(
-      objectName = rep('timeSinceFire', 11),
-      saveTime = seq(from = 2025, to = 2075, by = 5),
-      fun = rep("writeRaster", 11),
-      file = paste0(rep('timeSinceFire', 11), rep(".tif", 11)),
-      package = rep("terra", 11)
     )
+    #,
+
+    # data.frame(
+    #   objectName = rep('timeSinceFire', 11),
+    #   saveTime = seq(from = 2025, to = 2075, by = 5),
+    #   fun = rep("writeRaster", 11),
+    #   file = paste0(rep('timeSinceFire', 11), rep(".tif", 11)),
+    #   package = rep("terra", 11)
+    # )
   )
 }
 
@@ -177,3 +178,4 @@ outputs = {
 
 results <- SpaDES.core::simInitAndSpades2(out)
 results <- SpaDES.core::restartSpades()
+saveRDS(results, file.path('outputs', 'forecastSpaDESout.rds'))
